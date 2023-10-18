@@ -7,7 +7,7 @@ export default function App() {
 
       </View>
       <Text>Welcome to RNCourses</Text>
-      <Text>Another Welcome Message</Text>
+      <Text style={{margin: 16, borderWidth: 2, borderColor: 'green'}}>Another Welcome Message</Text>
       <Button title='Open the new test'/>
 
     </View>
