@@ -63,8 +63,6 @@ const styles = StyleSheet.create({
     padding: 8,
     borderRadius: 6,
     backgroundColor: '#5E0ACC',
-    color: '#ffffff',
-  },
   goalText: {
     color: '#ffffff',
   }
