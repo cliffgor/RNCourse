@@ -1,4 +1,4 @@
-import { Button, StyleSheet, TextInput, View } from 'react-native'
+import { Button, Modal, StyleSheet, TextInput, View } from 'react-native'
 import React, { useState } from 'react'
 
 function GoalInput(props) {
@@ -14,10 +14,12 @@ function GoalInput(props) {
     }
 
     return (
-        <View style={styles.inputContainer}>
-            <TextInput style={styles.textInput} placeholder='Your Course Goal' onChangeText={goalInputHandler} value={enteredGoal} />
-            <Button title='Add Goal' onPress={addGoalHandler} />
-        </View>
+        <Modal>
+            <View style={styles.inputContainer}>
+                <TextInput style={styles.textInput} placeholder='Your Course Goal' onChangeText={goalInputHandler} value={enteredGoal} />
+                <Button title='Add Goal' onPress={addGoalHandler} />
+            </View>
+        </Modal>
     )
 }
 
