@@ -5,7 +5,7 @@ import GoalItem from './components/GoalItem';
 import { useState } from 'react';
 
 export default function App() {
-  
+
   const [modalIsVisible, setModalIsVisible] = useState(false);
 
   const [courseGoals, setCourseGoals] = useState([]);
@@ -14,8 +14,13 @@ export default function App() {
     setModalIsVisible(true);
   }
 
+  function endGoalHandler() {
+    setModalIsVisible(false);
+  }
+
   function addGoalHandler(enteredGoal) {
     setCourseGoals(currentCourseGoals => [...courseGoals, { text: enteredGoal, id: Math.random().toString() }])
+    endGoalHandler()
   }
 
   function deleteGoalHandler(id) {
@@ -28,8 +33,8 @@ export default function App() {
 
   return (
     <View style={styles.appContainer}>
-      <Button title='Add New Goal' color="#5e0acc" onPress={startAddGoalHandler}/>
-      {modalIsVisible && <GoalInput onAddGoal={addGoalHandler} />}
+      <Button title='Add New Goal' color="#5e0acc" onPress={startAddGoalHandler} />
+      <GoalInput visible={modalIsVisible} onAddGoal={addGoalHandler} onCancel={endGoalHandler} />
       <View style={styles.goalsContainer}>
         <FlatList data={courseGoals} renderItem={itemData => {
           itemData.index
